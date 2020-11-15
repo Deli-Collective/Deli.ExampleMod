@@ -1,0 +1,15 @@
+﻿{
+  "guid": "deli_example_mod",
+  "version": "1.0.0.0",
+  "dependencies": {
+    "deli.core": "0.0.0.0"
+  },
+  "name": "Deli Example Mod",
+  "authors": [ 
+    "Nathan Gill"
+  ],
+  "assets": {
+    "DeliExampleMod.dll": "assembly",
+    "Resources/ExampleAsset1.txt": "example_asset"
+  }
+}

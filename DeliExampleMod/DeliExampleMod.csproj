@@ -1,0 +1,42 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net35</TargetFramework>
+        <LangVersion>7.3</LangVersion>
+        <RootNamespace>DeliExampleMod</RootNamespace>
+    </PropertyGroup>
+
+    <Target Name="PostCompileBuildMod" AfterTargets="Build">
+        <Exec Command="powershell.exe -NoProfile /nologo -File .\BuildMod.ps1 $(OutDir) $(TargetName)" />
+    </Target>
+    
+    <ItemGroup>
+      <None Update="manifest.json">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </None>
+      <None Update="Resources\ExampleTextResource.txt">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </None>
+      <None Update="Resources\ExampleAsset1.txt">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </None>
+    </ItemGroup>
+    
+    <ItemGroup>
+      <PackageReference Include="BepInEx.Core" Version="5.4.0" />
+      <PackageReference Include="UnityEngine.Core" Version="5.6.0" />
+    </ItemGroup>
+    
+    <ItemGroup>
+      <Reference Include="Atlas, Version=20.11.14.1959, Culture=neutral, PublicKeyToken=null">
+        <HintPath>..\Libs\Atlas.dll</HintPath>
+      </Reference>
+      <Reference Include="Deli, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+        <HintPath>..\Libs\Deli.dll</HintPath>
+      </Reference>
+      <Reference Include="Valve.Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=null">
+        <HintPath>..\Libs\Valve.Newtonsoft.Json.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+
+</Project>
