@@ -7,7 +7,7 @@
     </PropertyGroup>
 
     <Target Name="PostCompileBuildMod" AfterTargets="Build">
-        <Exec Command="powershell.exe -NoProfile /nologo -File .\BuildMod.ps1 $(OutDir) $(TargetName)" />
+        <Exec Command="pwsh.exe -NoProfile /nologo -File .\BuildMod.ps1 $(OutDir) $(TargetName)" />
     </Target>
     
     <ItemGroup>
