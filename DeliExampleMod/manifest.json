@@ -23,7 +23,7 @@
    * The path can be either a file, folder or any format valid for use with the given loader
    * Assets are resolved top down, so generally you'll want your assembly first.
    */
-  "assets": {
+  "runtime": {
     "DeliExampleMod.dll": "assembly",
     "Resources/ExampleAsset1.txt": "example_asset"
   }

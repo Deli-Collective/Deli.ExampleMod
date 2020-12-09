@@ -14,7 +14,7 @@ namespace DeliExampleMod
             var asset = mod.Resources.Get<ExampleJsonAsset>(path).Unwrap();
 
             // Switch on the severity and log the message from the logger of the mod that contains the asset
-            mod.Log.LogInfo(asset.Message);
+            mod.Logger.LogInfo(asset.Message);
         }
     }
 }
