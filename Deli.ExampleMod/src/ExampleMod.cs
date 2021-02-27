@@ -16,7 +16,7 @@ namespace Deli.ExampleMod
         public ExampleMod()
         {
             // There is 1 log message in each of the methods here.
-            // Run this mod to see the order of execution logged to console.)
+            // Run this mod to see the order of execution logged to console.
             Logger.LogInfo("I am being constructed!");
 
             // Hook to the setup stage (the first stage we can access)
@@ -37,8 +37,24 @@ namespace Deli.ExampleMod
         private void Awake()
         {
             Logger.LogInfo("I am awakening!");
+            
+            ShowConfigs();
 
             // TODO: Put the rest of your Unity startup code here
+        }
+        
+        // The config system is identical to BepInEx, but here's a demo if you are unfamiliar.
+        // They are good with simple types (primitives and small structs), but for larger sets of data you may want to
+        // use an asset loader of some sort.
+        private void ShowConfigs()
+        {
+            // Bind configs to create a config entry, and an object that represents the entry
+            var number = Config.Bind("Favorites", "Number", 2, "This number is printed to the console.");
+            var word = Config.Bind("Favorites", "Word", "deli", "This word is printed to the console.");
+            
+            // With the entry, you can read, refresh, even write new values
+            Logger.LogInfo($"Your favorite number: {number.Value}");
+            Logger.LogInfo($"Your favorite word: {word.Value}");
         }
         
         // And now you can access much more of Deli
